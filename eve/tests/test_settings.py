@@ -170,6 +170,9 @@ required_invoices['schema']['person']['required'] = True
 
 companies = {
     'item_title': 'company',
+    'datasource': {
+        'projection': {'holding': 1},
+    },
     'schema': {
         'departments': {
             'type': 'list',
@@ -181,11 +184,15 @@ companies = {
                         'type': 'list',
                         'schema': {
                             'type': 'objectid',
-                            'data_relation': {'resource': 'contacts'}
+                            'data_relation': {'resource': 'contacts'},
                         }
                     }
                 }
             }
+        },
+        'holding': {
+            'type': 'objectid',
+            'data_relation': {'resource': 'companies'},
         }
     }
 }

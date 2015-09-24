@@ -78,7 +78,7 @@ class TestMinimal(unittest.TestCase):
         self.settings_file = settings_file
         self.app = eve.Eve(settings=self.settings_file,
                            url_converters=url_converters)
-
+        self.app.testing = True
         self.test_client = self.app.test_client()
 
         self.domain = self.app.config['DOMAIN']
